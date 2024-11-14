@@ -14,14 +14,15 @@ This project sets up a live web stream from a Raspberry Pi camera module that ca
 
 - Raspberry Pi OS (tested on Raspberry Pi OS Lite)
 - Python 3.11
-- Web browser on local device (I live stream it on my iPad)
+- Web browser on local device (I live stream it on my iPad👇)
+![Image-of-live-stream-on-the-ipad](Image/iPad-Streaming-Live-Feed.jpeg)
 
 ## Initial Setup
 
 ### 1. Raspberry Pi OS Installation
 1. Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 2. Flash Raspberry Pi OS (64-bit recommended) to your microSD card
-3. Configure WiFi and SSH during flashing if needed
+3. Configure WiFi and SSH during flashing if needed (if you do not know what this means then ask ChatGPT.)
 
 ### 2. Camera Setup
 1. Connect the camera module to the Raspberry Pi's camera port
@@ -29,7 +30,7 @@ This project sets up a live web stream from a Raspberry Pi camera module that ca
 ```bash
 sudo raspi-config
 ```
-Navigate to: Interface Options → Camera → Enable → Finish → Reboot
+Navigate to: Interface Options → Camera → Enable → Finish → Reboot (This may look a little different but there is an option I promise)
 
 ### 3. System Updates
 ```bash
@@ -41,7 +42,9 @@ Install all necessary packages:
 ```bash
 # Install system dependencies
 sudo apt install -y build-essential cmake pkg-config libjpeg-dev libtiff5-dev libpng-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libfontconfig1-dev libcairo2-dev libgdk-pixbuf2.0-dev libpango1.0-dev libgtk2.0-dev libgtk-3-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev libhdf5-103 libqt5gui5 libqt5webkit5 libqt5test5 python3-pyqt5 python3-dev
+```
 
+```bash
 # Install Python packages
 sudo apt install -y python3-opencv python3-flask python3-picamera2
 ```
@@ -50,16 +53,24 @@ sudo apt install -y python3-opencv python3-flask python3-picamera2
 ```bash
 # Install UFW if not already installed
 sudo apt install ufw
+```
 
+```bash
 # Enable UFW
 sudo ufw enable
+```
 
+```bash
 # Allow SSH (important to prevent lockout!)
 sudo ufw allow ssh
+```
 
+```bash
 # Allow port 5050 for the web stream
 sudo ufw allow 5050/tcp
+```
 
+```bash
 # Verify settings
 sudo ufw status
 ```
@@ -181,14 +192,3 @@ If you encounter any issues:
 1. Check the troubleshooting section
 2. Open an issue on GitHub
 3. Provide logs and error messages when reporting issues
-```
-
-This README provides:
-- Complete setup instructions
-- Common issues and solutions
-- Security considerations
-- Best practices
-- What not to do
-- Performance tips
-
-You can customize it further based on your specific needs or experiences with the setup.
